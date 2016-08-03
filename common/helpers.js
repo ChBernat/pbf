@@ -13,7 +13,15 @@ const validateDatabaseObject = (object, arrayOfProperKeys) => {
   return true;
 };
 
+const promiseFactory = (resolveArg, boolean, rejectArg) => {
+  return new bluebird((resolve, reject) => {
+    (boolean)
+      ? resolve(resolveArg)
+      : reject(rejectArg);
+  });
+};
 
 module.exports = {
   validateDatabaseObject,
+  promiseFactory,
 }
